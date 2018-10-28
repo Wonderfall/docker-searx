@@ -17,6 +17,8 @@ It provides basic privacy by mixing your queries with searches on other platform
 #### Environment variables
 - **IMAGE_PROXY** : enables images proxying *(default : False)*
 - **BASE_URL** : http://domain.tld *(default : False)*
+- **HTTP_PROXY_URL**: outgoing http proxy URL (optional)
+- **HTTPS_PROXY_URL**: outgoing https proxy URL (optional)
 
 #### Ports
 - **8888** [(reverse proxy!)](https://github.com/hardware/mailserver/wiki/Reverse-proxy-configuration)
