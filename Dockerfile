@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ARG VERSION=0.14.0
+ARG VERSION=0.15.0
 
 ENV BASE_URL=False IMAGE_PROXY=False \
     UID=991 GID=991
@@ -8,7 +8,7 @@ ENV BASE_URL=False IMAGE_PROXY=False \
 RUN apk -U upgrade \
  && apk add -t build-dependencies \
     build-base \
-    python-dev \
+    python3-dev \
     libffi-dev \
     libxslt-dev \
     libxml2-dev \
@@ -17,15 +17,15 @@ RUN apk -U upgrade \
     ca-certificates \
  && apk add \
     su-exec \
-    python \
+    python3 \
     libxml2 \
     libxslt \
     openssl \
     tini \
-    py2-pip \
  && mkdir /usr/local/searx && cd /usr/local/searx \
  && wget -qO- https://github.com/asciimoo/searx/archive/v${VERSION}.tar.gz | tar xz --strip 1 \
- && pip install --no-cache -r requirements.txt \
+ && pip3 install --upgrade setuptools pip==18.1 \
+ && pip3 install --no-cache -r requirements.txt \
  && sed -i "s/127.0.0.1/0.0.0.0/g" searx/settings.yml \
  && apk del build-dependencies \
  && rm -f /var/cache/apk/*
