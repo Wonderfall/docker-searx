@@ -1,6 +1,6 @@
-FROM alpine:3.9
+FROM alpine:3.12
 
-ARG VERSION=0.15.0
+ARG VERSION=0.16.0
 
 ENV BASE_URL=False IMAGE_PROXY=False \
     UID=991 GID=991
@@ -18,6 +18,7 @@ RUN apk -U upgrade \
  && apk add \
     su-exec \
     python3 \
+    py3-pip \
     libxml2 \
     libxslt \
     openssl \
@@ -26,6 +27,7 @@ RUN apk -U upgrade \
  && wget -qO- https://github.com/asciimoo/searx/archive/v${VERSION}.tar.gz | tar xz --strip 1 \
  && pip3 install --upgrade setuptools \
  && pip3 install --no-cache -r requirements.txt \
+ && pip3 install --no-cache Werkzeug==0.16.0 \
  && sed -i "s/127.0.0.1/0.0.0.0/g" searx/settings.yml \
  && apk del build-dependencies \
  && rm -f /var/cache/apk/*
