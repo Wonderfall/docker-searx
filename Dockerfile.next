@@ -22,7 +22,7 @@ RUN apk -U upgrade \
     openssl \
     tini \
  && mkdir /usr/local/searx && cd /usr/local/searx \
- && wget -qO- https://github.com/return42/searx/archive/searx-next.tar.gz | tar xz --strip 1 \
+ && wget -qO- https://github.com/return42/searx/archive/google-fix.tar.gz | tar xz --strip 1 \
  && pip3 install --upgrade setuptools \
  && pip3 install --no-cache -r requirements.txt \
  && pip3 install --no-cache Werkzeug==0.16.0 \
