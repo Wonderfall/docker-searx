@@ -1,5 +1,7 @@
 ## wonderfall/searx
 
+⚠️ **DEPRECATED** : please use the official image instead. Thanks for your support!
+
 ![](https://i.goopics.net/ls.png)
 
 **This image is a lightweight version of the official one. Please use the latter if you want something more production-oriented.**
